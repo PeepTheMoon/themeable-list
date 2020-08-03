@@ -1,10 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { useCharacters } from '../../hooks/appContext';
 
 const CharacterList = () => {
   const characters = useCharacters();
-  console.log(characters);
 
   if(!characters) return <h1>Loading Rick and Morty Characters...</h1>;
 

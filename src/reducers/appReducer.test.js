@@ -30,6 +30,22 @@ describe('app reducer', () => {
         }
       ]
     });
-
   });
+
+  it('toggles the theme from light to dark', () => {
+    const state = {
+      theme: 'light'
+    };
+
+    const action = {
+      type: 'TOGGLE_THEME'
+    };
+
+    const newState = reducer(state, action);
+
+    expect(newState).toEqual({
+      theme: 'dark'
+    });
+  });
+  
 });
