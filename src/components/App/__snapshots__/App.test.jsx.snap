@@ -2,7 +2,7 @@
 
 exports[`App component renders App 1`] = `
 <Fragment>
-  <[object Object] />
+  <Header />
   <CharacterList />
 </Fragment>
 `;
