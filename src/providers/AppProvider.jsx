@@ -9,9 +9,11 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    // getCharacters(state.count)
     getCharacters()
       .then(characters => dispatch({ type: 'SET_CHARACTERS', payload: characters }));
   }, []);
+  // [state.count]
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
