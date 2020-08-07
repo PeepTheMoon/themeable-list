@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from '../../hooks/appContext';
+import { useDispatch, usePage } from '../../hooks/appContext';
 
-const Pagination = ({ page }) => {
+const Pagination = () => {
+  const { maxPage, page } = usePage();
   const dispatch = useDispatch();
 
   const increment = () => dispatch({ type: 'INCREMENT' });
@@ -11,15 +11,11 @@ const Pagination = ({ page }) => {
 
   return (
     <section>
-      <span>Page: {page}</span>
-      <button onClick={decrement}>Previous</button>
-      <button onClick={increment}>Next</button>
+      <button disabled={page === 1} onClick={decrement}>&lt;</button>
+      <span>{page} / {maxPage}</span>
+      <button disabled={page === maxPage} onClick={increment}>&gt;</button>
     </section>
   );
-};
-
-Pagination.propTypes = {
-  page: PropTypes.number.isRequired
 };
 
 export default Pagination;

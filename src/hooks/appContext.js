@@ -19,5 +19,8 @@ export const useTheme = () => {
 
 export const usePage = () => {
   const { state } = useContext(AppContext);
-  return state.page;
+  return {
+    page: state.page,
+    maxPage: state.maxPage
+  };
 };
