@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../header/Header';
 import CharacterList from '../character/CharacterList';
-// import { useCount } from '../../hooks/appContext';
-// import Pagination from '../pagination/Pagination';
+import { usePage } from '../../hooks/appContext';
+import Pagination from '../pagination/Pagination';
 
 export default function App() {
-  // const count = useCount();
+  const page = usePage();
 
   return (
     <>
       <Header />
-      {/* <Pagination count={count} /> */}
+      <Pagination page={page} />
       <CharacterList />
     </>
   );

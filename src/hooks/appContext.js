@@ -17,7 +17,7 @@ export const useTheme = () => {
   return state.theme;
 };
 
-export const useCount = () => {
+export const usePage = () => {
   const { state } = useContext(AppContext);
-  return state.count;
+  return state.page;
 };

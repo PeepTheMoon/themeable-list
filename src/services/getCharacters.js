@@ -1,26 +1,36 @@
-// export const getCharacters = () => {
-//   return fetch('https://rickandmortyapi.com/api/character/')
-//     .then(res => res.json())
-//     .then(({ info, results: characters }) => ({
-//       count: info.count,
-//       characters: characters.map(character => ({
-//         name: character.name,
-//         status: character.status,
-//         species: character.species,
-//         image: character.image
-//       }))
-//     }));
-// };
-
-export const getCharacters = () => {
-  return fetch('https://rickandmortyapi.com/api/character/')
+export const getCharacters = (page) => {
+  return fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
     .then(res => res.json())
-    .then(({ results: characters }) =>
-      characters.map(character => ({
+    .then(({ info, results: characters }) => ({
+      page: info.pages,
+      characters: characters.map(character => ({
         name: character.name,
         status: character.status,
         species: character.species,
         image: character.image
       }))
-    );
+    }));
 };
+
+// export const getPage = () => {
+//   return fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+//     .then(res => res.json())
+//     .then(({ info: page }) => 
+//       page.map(page => ({
+//         page: page.pages
+//       }))
+//     );
+// };
+
+// export const getCharacters = () => {
+//   return fetch('https://rickandmortyapi.com/api/character/')
+//     .then(res => res.json())
+//     .then(({ results: characters }) =>
+//       characters.map(character => ({
+//         name: character.name,
+//         status: character.status,
+//         species: character.species,
+//         image: character.image
+//       }))
+//     );
+// };
